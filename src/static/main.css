@@ -337,6 +337,46 @@ template {
   display: none;
 }
 
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes slideInFromTop {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes slideInFromBottom {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
 * {
   box-sizing: border-box;
 }
@@ -345,10 +385,6 @@ template {
   font-size: 13px;
   background-color: #ecf2f8;
   font-family: "Barlow Semi Condensed", sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
   font-weight: 500;
 }
 
@@ -412,6 +448,10 @@ img[alt=quote] {
   grid-gap: 25px;
 }
 
+.card {
+  animation: 1s ease-out 0s 1 slideInFromTop;
+}
+
 .personTitle {
   opacity: 0.5;
 }
@@ -468,11 +508,32 @@ img[alt=quote] {
     grid-template-areas: "daniel daniel" "jonathan jeanette" "patrick patrick" "kira kira";
     margin: 10% auto;
   }
+
+  .daniel-card,
+.jonathan-card {
+    animation: 1s ease-out 0s 1 slideInFromLeft;
+  }
+
+  .jeanette-card,
+.patrick-card,
+.kira-card {
+    animation: 1s ease-out 0s 1 slideInFromRight;
+  }
 }
 @media only screen and (min-width: 992px) {
   .container {
     grid-template-columns: repeat(3, 1fr);
     grid-template-areas: "daniel daniel jeanette" "jonathan patrick patrick" "kira kira kira";
+  }
+
+  .daniel-card,
+.jonathan-card {
+    animation: 1s ease-out 0s 1 slideInFromLeft;
+  }
+
+  .jeanette-card,
+.patrick-card {
+    animation: 1s ease-out 0s 1 slideInFromRight;
   }
 }
 @media only screen and (min-width: 1200px) {
@@ -494,6 +555,22 @@ img[alt=quote] {
     position: absolute;
     top: 0;
     right: 17%;
+  }
+
+  .daniel-card {
+    animation: 1s ease-out 0s 1 slideInFromLeft;
+  }
+
+  .jonathan-card {
+    animation: 1s ease-out 0s 1 slideInFromTop;
+  }
+
+  .jeanette-card {
+    animation: 1s ease-out 0s 1 slideInFromLeft;
+  }
+
+  .patrick-card {
+    animation: 1s ease-out 0s 1 slideInFromBottom;
   }
 }
 

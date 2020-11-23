@@ -1,4 +1,5 @@
 @import 'normalize';
+@import 'animations';
 
 $ModerateViolet: hsl(263, 55%, 52%);
 $VeryDarkGrayishBlue: hsl(217, 19%, 35%);
@@ -20,10 +21,6 @@ $BorderRadius: 10px;
   font-size: $BasicFontSize;
   background-color: $LightGrayishBlue;
   font-family: 'Barlow Semi Condensed', sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
   font-weight: 500;
 }
 
@@ -88,6 +85,10 @@ img[alt='quote']{
 }
 
 
+.card{
+  animation: 1s ease-out 0s 1 slideInFromTop;
+}
+
 .personTitle{
   opacity: 0.5;
 }
@@ -97,7 +98,6 @@ img[alt='quote']{
   padding: 37px;
   border-radius: $BorderRadius;
 }
-
 
 .daniel-card {
   grid-area: daniel;
@@ -149,6 +149,17 @@ img[alt='quote']{
     grid-template-areas: 'daniel daniel' 'jonathan jeanette' 'patrick patrick' 'kira kira';
     margin: 10% auto;
   }
+
+  .daniel-card,
+  .jonathan-card {
+    animation: 1s ease-out 0s 1 slideInFromLeft;
+  }
+
+  .jeanette-card,
+  .patrick-card,
+  .kira-card{
+    animation: 1s ease-out 0s 1 slideInFromRight;
+  }
 }
 
 
@@ -157,10 +168,21 @@ img[alt='quote']{
     grid-template-columns: repeat(3, 1fr);
     grid-template-areas: 'daniel daniel jeanette' 'jonathan patrick patrick' 'kira kira kira';
   }
+
+  .daniel-card,
+  .jonathan-card{
+    animation: 1s ease-out 0s 1 slideInFromLeft;
+  }
+
+  .jeanette-card,
+  .patrick-card{
+    animation: 1s ease-out 0s 1 slideInFromRight;
+  }
 }
 
 
 @media only screen and (min-width: 1200px){
+
   .container {
     width: 77vw;
     height: 70vh;
@@ -179,5 +201,22 @@ img[alt='quote']{
     position: absolute;
     top: 0;
     right: 17%;
+  }
+
+  .daniel-card {
+    animation: 1s ease-out 0s 1 slideInFromLeft;
+  }
+
+
+  .jonathan-card {
+    animation: 1s ease-out 0s 1 slideInFromTop;
+  }
+
+  .jeanette-card {
+    animation: 1s ease-out 0s 1 slideInFromLeft;
+  }
+
+  .patrick-card {
+    animation: 1s ease-out 0s 1 slideInFromBottom;
   }
 }
