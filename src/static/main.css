@@ -337,32 +337,151 @@ template {
   display: none;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 13px;
+  background-color: #ecf2f8;
+  font-family: "Barlow Semi Condensed", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-weight: 500;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+}
+
+h1 {
+  font-size: 19.5px;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 20px;
+}
+
+section {
+  z-index: 1;
+  position: relative;
+}
+
+header {
+  display: flex;
+  align-items: center;
+}
+
+blockquote {
+  margin: 0;
+  opacity: 0.7;
+}
+
+img:not([alt=quote]) {
+  border-radius: 100%;
+  width: 30px;
+  display: inline-block;
+  margin-right: 20px;
+  z-index: 1;
+}
+
+.picture-background {
+  width: 34px;
+  height: 34px;
+  position: absolute;
+  border-radius: 50%;
+  left: -2px;
+  opacity: 0.7;
+  background-color: white;
+}
+
+img[alt=quote] {
+  position: absolute;
+  top: 0;
+  right: 10%;
+}
+
 .container {
-  width: 80%;
-  height: 80vh;
-  margin: 0 auto;
+  width: 90vw;
+  margin: 20% auto;
   display: grid;
-  grid-template-areas: "daniel jonathan kira" "jeanette patrick kira";
+  grid-template-columns: 1fr;
+  grid-template-areas: "daniel" "jonathan" "jeanette" "patrick" "kira";
+  grid-gap: 25px;
+}
+
+.personTitle {
+  opacity: 0.5;
+}
+
+.card {
+  position: relative;
+  padding: 37px;
+  border-radius: 10px;
 }
 
 .daniel-card {
   grid-area: daniel;
+  background-color: #7541c8;
+  color: white;
 }
 
 .jonathan-card {
   grid-area: jonathan;
+  background-color: #48556a;
+  color: #cfcfcf;
 }
 
 .jeanette-card {
   grid-area: jeanette;
+  color: #48556a;
+  background-color: white;
+  box-shadow: 5px 5px 10px 5px #ecf2f8;
+}
+.jeanette-card h1 {
+  color: #48556a;
 }
 
 .patrick-card {
   grid-area: patrick;
+  background-color: #19212e;
+  color: #cfcfcf;
+}
+.patrick-card .picture-background {
+  background-color: #7541c8;
 }
 
 .kira-card {
   grid-area: kira;
+  background-color: white;
+  color: #48556a;
+}
+.kira-card h1 {
+  color: #48556a;
+}
+
+@media only screen and (min-width: 1440px) {
+  .container {
+    width: 77vw;
+    height: 70vh;
+    margin: 0 auto;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas: "daniel daniel jonathan kira" "jeanette patrick patrick kira";
+    position: relative;
+    top: 50%;
+    transform: translate(0, -50%);
+    max-width: 1109px;
+    max-height: 630px;
+  }
+
+  img[alt=quote] {
+    position: absolute;
+    top: 0;
+    right: 17%;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

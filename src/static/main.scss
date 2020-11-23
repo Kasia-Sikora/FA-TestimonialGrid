@@ -7,40 +7,161 @@ $White: hsl(0, 0%, 100%);
 $LightGray: hsl(0, 0%, 81%);
 $LightGrayishBlue: hsl(210, 46%, 95%);
 $BasicFontSize: 13px;
+$BorderRadius: 10px;
 
 //1. "Verified Graduate" has the same color as the person's name with 50% opacity
 //2. Review paragraphs inside the quotations have the same color as well, but are at 70% opacity
 
+*{
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: $BasicFontSize;
+  background-color: $LightGrayishBlue;
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-weight: 500;
+}
+
+body{
+  width: 100vw;
+  height: 100vh;
+}
+
+h1{
+  font-size: $BasicFontSize * 1.5;
+  font-weight: 600;
+  color: $White;
+  margin-bottom: 20px;
+}
+
+section{
+  z-index: 1;
+  position: relative;
+}
+
+header{
+  display: flex;
+  align-items: center;
+}
+
+blockquote {
+  margin: 0;
+  opacity: 0.7;
+}
+
+img:not([alt='quote']) {
+  border-radius: 100%;
+  width: 30px;
+  display: inline-block;
+  margin-right: 20px;
+  z-index: 1;
+}
+
+.picture-background{
+  width: 34px;
+  height: 34px;
+  position: absolute;
+  border-radius: 50%;
+  left: -2px;
+  opacity: 0.7;
+  background-color: $White;
+}
+
+img[alt='quote']{
+  position: absolute;
+  top: 0;
+  right: 10%;
+}
+
 .container {
-  width: 80%;
-  height: 80vh;
-  margin: 0 auto;
+  width: 90vw;
+  margin: 20% auto;
   display: grid;
-  grid-template-areas: 'daniel jonathan kira' 'jeanette patrick kira';
+  grid-template-columns: 1fr;
+  grid-template-areas: 'daniel' 'jonathan' 'jeanette' 'patrick' 'kira';
+  grid-gap: 25px;
 }
 
 
+.personTitle{
+  opacity: 0.5;
+}
+
 .card {
+  position: relative;
+  padding: 37px;
+  border-radius: $BorderRadius;
 }
 
 
 .daniel-card {
   grid-area: daniel;
+  background-color: $ModerateViolet;
+  color: $White;
 }
 
 
 .jonathan-card {
   grid-area: jonathan;
+  background-color: $VeryDarkGrayishBlue;
+  color: $LightGray;
 }
 
 .jeanette-card {
   grid-area: jeanette;
+  color: $VeryDarkGrayishBlue;
+  background-color: $White;
+  box-shadow: 5px 5px 10px 5px $LightGrayishBlue;
+
+  h1{
+    color: $VeryDarkGrayishBlue;
+  }
 }
 
 .patrick-card {
   grid-area: patrick;
+  background-color: $VeryDarkBlackishBlue;
+  color: $LightGray;
+
+  .picture-background{
+    background-color: $ModerateViolet;
+  }
 }
 
 .kira-card {
   grid-area: kira;
+  background-color: $White;
+  color: $VeryDarkGrayishBlue;
+
+  h1{
+    color: $VeryDarkGrayishBlue;
+  }
+}
+
+
+@media only screen and (min-width: 1440px){
+  .container {
+    width: 77vw;
+    height: 70vh;
+    margin: 0 auto;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas: 'daniel daniel jonathan kira' 'jeanette patrick patrick kira';
+    position: relative;
+    top: 50%;
+    transform: translate(0, -50%);
+    max-width: 1109px;
+    max-height: 630px;
+  }
+
+  img[alt='quote']{
+    position: absolute;
+    top: 0;
+    right: 17%;
+  }
 }
