@@ -1,5 +1,11 @@
 # Frontend Mentor - Testimonials grid section
 
+My solution: 
+
+<img src="https://raw.githubusercontent.com/Kasia-Sikora/FA-TestimonialGrid/main/src/assets/Screenshot.png" width="50%" height="50%">
+
+Original: 
+
 ![Design preview for the Testimonials grid section coding challenge](./src/assets/design/desktop-preview.jpg)
 
 ## Welcome! 👋
